@@ -1,0 +1,23 @@
+.header {
+  height: 137px;
+  border-bottom: 3px #f6f6f6 solid;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+
+.headerImgAndTextContainer {
+  display: flex;
+}
+
+.headerText {
+  margin-left: 17px;
+}
+
+.pizzaImg {
+  height: 42px;
+  width: 38px;
+  margin-left: 77px;
+}

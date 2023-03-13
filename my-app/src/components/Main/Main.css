@@ -1,0 +1,126 @@
+.main {
+  margin-top: 40px;
+}
+
+.choseTypeOfPizza {
+  margin-bottom: 32px;
+}
+
+.choseTypeOfPizza {
+  display: flex;
+  justify-content: space-between;
+}
+
+.typeList {
+  display: flex;
+}
+
+.typeList li:not(:last-child) {
+  margin-right: 9px;
+}
+
+.typeList li:first-child {
+  margin-left: 67px;
+}
+
+.sortPizzas {
+  margin-right: 50px;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 17px;
+}
+
+.sortByChoice {
+  font-weight: 400;
+  color: #fe5f1e;
+  border-bottom: 1px dotted #fe5f1e;
+}
+
+.typeListItem {
+  height: 46px;
+  width: 100%;
+  border-radius: 7%;
+  background-color: #3c39394a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.typeListItemText {
+  padding-left: 16px;
+  padding-right: 16px;
+  font-weight: 700;
+  font-size: 16px;
+  color: #2c2c2c;
+}
+
+.title {
+  margin-left: 67px;
+}
+
+.pizzaPicture {
+  width: 260px;
+  height: 260px;
+}
+
+.pizzaInfoContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.pizzaInfoItem {
+  width: calc(25% - 10px);
+  margin-bottom: 20px;
+}
+
+.pizzaInfoItem:nth-child(4n + 1) {
+  margin-left: 40px;
+}
+
+.nameOfPizza {
+  color: #000000;
+  margin-top: 11px;
+  margin-bottom: 6px;
+  font-weight: 800;
+  font-size: 20px;
+  line-height: 24px;
+}
+
+.price {
+  font-weight: 600;
+  font-size: 20px;
+  letter-spacing: 0.015em;
+  margin-bottom: 6px;
+  color: #000000;
+}
+
+.addPizza {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fe5f1e;
+  width: 130px;
+  height: 40px;
+  border-radius: 30px;
+  margin-right: 38px;
+  border: none;
+  cursor: pointer;
+
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 19px;
+  color: #ffffff;
+    transition: background-color 0.5s ease-in-out, box-shadow 0.5s ease;
+}
+
+.addPizza:hover,
+.addPizza:focus {
+  background-color: #ff772e;
+  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.25);
+}
+
+
+.sizesContainer {
+  margin-bottom: 6px;
+}

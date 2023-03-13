@@ -1,0 +1,58 @@
+[
+  {
+    "id": 1,
+    "name": "Маргарита",
+    "price": 5.25,
+    "image": "https://versii.if.ua/wp-content/uploads/2021/06/lana-rouds-600x750.jpg",
+    "popular": 4.70
+  },
+  {
+    "id": 2,
+    "name": "Пепперони",
+    "price": 7.00,
+    "image": "https://versii.if.ua/wp-content/uploads/2021/06/lana-rouds-600x750.jpg",
+    "popular": 4.99
+  },
+  {
+    "id": 3,
+    "name": "Гавайская",
+    "price": 6.40,
+    "image": "https://versii.if.ua/wp-content/uploads/2021/06/lana-rouds-600x750.jpg",
+    "popular": 8.93
+  },
+  {
+    "id": 4,
+    "name": "Четыре сезона",
+    "price": 6.10,
+    "image": "https://versii.if.ua/wp-content/uploads/2021/06/lana-rouds-600x750.jpg",
+    "popular": 6.99
+  },
+    {
+    "id": 5,
+    "name": "Маргарита",
+    "price": 7.99,
+    "image": "https://versii.if.ua/wp-content/uploads/2021/06/lana-rouds-600x750.jpg",
+    "popular": 9.42
+  },
+  {
+    "id": 6,
+    "name": "Пепперони",
+    "price": 4.50,
+    "image": "https://versii.if.ua/wp-content/uploads/2021/06/lana-rouds-600x750.jpg",
+    "popular": 4.66
+  },
+  {
+    "id": 7,
+    "name": "Гавайская",
+    "price": 5.80,
+    "image": "https://versii.if.ua/wp-content/uploads/2021/06/lana-rouds-600x750.jpg",
+    "popular": 1.31
+  },
+  {
+    "id": 8,
+    "name": "Четыре сезона",
+    "price": 6.30,
+    "image": "https://versii.if.ua/wp-content/uploads/2021/06/lana-rouds-600x750.jpg",
+    "popular": 7.35
+  }
+]
