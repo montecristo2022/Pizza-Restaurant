@@ -1,5 +1,6 @@
 import "./Main.css";
 import { useEffect, useState } from "react";
+import { IngridientsButton } from "../IngridientsButton/IngridientsButton";
 
 interface Pizza {
   id: number;
@@ -7,21 +8,37 @@ interface Pizza {
   price: number;
   image: string;
   popular: number;
-  dough: boolean;
+  characteristics: string[];
 }
 
 interface Props {
   pizzaData: Pizza[];
   setQuantity: (value: number) => void;
+  setTotalPrice: (value: number) => void;
+  totalPrice: number;
   quantity: number;
 }
 
-
-export function Main({ pizzaData, setQuantity, quantity }: Props) {
+export function Main({
+  pizzaData,
+  setQuantity,
+  quantity,
+  setTotalPrice,
+  totalPrice,
+}: Props) {
   const [priceFactors, setPriceFactors] = useState<{ [key: number]: number }>(
     {}
   );
   const [sizes, setSizes] = useState<{ [key: number]: number }>({});
+  const [pizzaArray, setPizzaArray] = useState<
+    Array<{
+      id: number;
+      name: string;
+      price: number;
+      image: string;
+      popular: number;
+    }>
+  >(pizzaData);
 
   const handleSizeChange = (id: number, size: number) => {
     setSizes((prev) => ({ ...prev, [id]: size }));
@@ -36,39 +53,46 @@ export function Main({ pizzaData, setQuantity, quantity }: Props) {
     const finalPrice = (price * sizeFactor).toFixed(2); // Вычисляем итоговую цену с учетом выбранного размера
 
     console.log(`Added pizza ${name} (ID: ${id}) to basket for ${finalPrice}$`);
-      setQuantity(quantity + 1)
+    setQuantity(quantity + 1);
+    setTotalPrice(totalPrice + Number(finalPrice));
+  };
+
+  const handleSortByChoice = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    const option = event.target.value;
+    if (option === "popularity") {
+      const sortedPizzas = [...pizzaData].sort((a, b) => b.popular - a.popular);
+      setPizzaArray(sortedPizzas);
+    } else if (option === "price") {
+      const sortedPizzas = [...pizzaData].sort((a, b) => b.price - a.price);
+      setPizzaArray(sortedPizzas);
+    } 
+     
   };
 
   useEffect(() => {
-   
-    console.log(`Current value of qu is: ${quantity}`);
-}, [quantity]);
+    const sortedPizzas = [...pizzaData].sort((a, b) => b.popular - a.popular);
+      setPizzaArray(sortedPizzas);
+  }, []);
 
 
   return (
     <main className="main">
       <div className="choseTypeOfPizza">
-        <ul className="typeList">
-          <li className="typeListItem">
-            <p className="typeListItemText">Все</p>
-          </li>
-          <li className="typeListItem">
-            <p className="typeListItemText">Мясные</p>
-          </li>
-          <li className="typeListItem">
-            <p className="typeListItemText">Вегетарианская</p>
-          </li>
-          <li className="typeListItem">
-            <p className="typeListItemText">Острые</p>
-          </li>
-        </ul>
-        <p className="sortPizzas">
-          Сортировка по <span className="sortByChoice">популярности</span>
-        </p>
+        <IngridientsButton setPizzaArray={setPizzaArray} pizzaArray={pizzaArray} />
+
+        <div>
+          <p className="sortOfPizzas">
+            Сортировка по{" "}
+            <select className="sortByChoice" onChange={handleSortByChoice}>
+              <option>popularity</option>
+              <option>price</option>
+            </select>
+          </p>
+        </div>
       </div>
       <h1 className="title">All Pizzas</h1>
       <div className="pizzaInfoContainer">
-        {pizzaData.map((el) => (
+        {pizzaArray.map((el) => (
           <div className="pizzaInfoItem" key={el.id}>
             <img className="pizzaPicture" src={el.image}></img>
             <p className="nameOfPizza">{el.name}</p>
@@ -124,57 +148,3 @@ export function Main({ pizzaData, setQuantity, quantity }: Props) {
     </main>
   );
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// const [dough, setDough] = useState<boolean>(true);
-
-// const handleDoughThickness = (
-//     id: number,
-//     dough: boolean,
-//     priceFactor: number
-//   ) => {
-//     console.log(id);
-//     setDough(dough);
-//     // setPriceFactors((prev) => ({ ...prev, [id]: priceFactor }));
-//   };
-
-/* <div>
-              Толщина теста
-              <button onClick={() => handleDoughThickness(el.id, false, 1)}>
-                Тонкое
-              </button>
-              <button onClick={() => handleDoughThickness(el.id, true, 1.05)}>
-                Толстое
-              </button>
-            </div> */

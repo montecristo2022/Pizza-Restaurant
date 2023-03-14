@@ -3,7 +3,7 @@
     justify-content: center;
     align-items: center;
     background-color: #fe5f1e;
-    width: 150px;
+    min-width: 190px;
     height: 50px;
     border-radius: 30px;
     margin-right: 38px;
@@ -12,6 +12,7 @@
     color:#FFFFFF;
     font-weight: 700;
         font-size: 16px;
+        border: none;
 }
 
 
@@ -20,3 +21,27 @@
     background-color: #ff772e;
     box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.25);
 }
+
+.modal {
+        max-width: 528px;
+    width: 100%;
+    min-height: 530px;
+    background-color: #ffffff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 4px;
+    box-shadow: 0px 1px 3px rgb(0 0 0 / 12%), 0px 1px 1px rgb(0 0 0 / 14%), 0px 2px 1px rgb(0 0 0 / 20%);
+    padding: 40px;
+    transition-property: transform;
+    transition-duration: 300ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px black solid; 
+    z-index: 1;  
+}
+
+/* .modal-open {
+background-color: rgba(0, 0, 0, 0.9);
+}
+ */

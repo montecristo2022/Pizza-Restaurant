@@ -1,0 +1,8 @@
+export function Modal() {
+ 
+  return (
+    <>
+     
+    </>
+  );
+}

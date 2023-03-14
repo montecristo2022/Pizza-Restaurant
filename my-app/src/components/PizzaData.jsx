@@ -14,7 +14,7 @@ const pizzaData = [
     price: 5.25,
     image: pizzaTest,
     popular: 4.7,
-    dough: false,
+    characteristics: ['spicy']
   },
   {
     id: 2,
@@ -22,7 +22,7 @@ const pizzaData = [
     price: 7.0,
     image: сheeseAndChicken,
     popular: 4.99,
-     dough: false,
+    characteristics: ['meat']
   },
   {
     id: 3,
@@ -30,15 +30,15 @@ const pizzaData = [
     price: 6.4,
     image: cheeseburgerPizza,
     popular: 8.93,
-     dough: false,
+    characteristics: ['meat']
   },
   {
     id: 4,
     name: "Cheese Pizza",
-    price: 6.1,
+    price: 7.1,
     image: cheesePizza,
     popular: 6.99,
-     dough: false,
+   characteristics: ['meat']
   },
   {
     id: 5,
@@ -46,7 +46,7 @@ const pizzaData = [
     price: 7.99,
     image: margarita,
     popular: 9.42,
-     dough: false,
+    characteristics: ['vegetarian']
   },
   {
     id: 6,
@@ -54,7 +54,7 @@ const pizzaData = [
     price: 4.5,
     image: prawnPizza,
     popular: 4.66,
-     dough: false,
+    characteristics: ['meat']
   },
   {
     id: 7,
@@ -62,7 +62,7 @@ const pizzaData = [
     price: 5.8,
     image: superCheese,
     popular: 1.31,
-     dough: false,
+    characteristics: ['spicy', 'meat']
   },
   {
     id: 8,
@@ -70,7 +70,7 @@ const pizzaData = [
     price: 6.3,
     image: mushroom,
     popular: 7.35,
-     dough: false,
+    characteristics: ['vegetarian']
   },
 ];
 

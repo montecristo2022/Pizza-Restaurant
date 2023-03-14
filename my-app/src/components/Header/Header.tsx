@@ -1,13 +1,19 @@
+
 import "./Header.css";
 import { BasketButton } from "../BasketButton/BasketButton";
 import pizzaHeaderImg from "../images/pizzaHeaderImg.jpg";
 
+
 interface PizzaQuantity {
-itemQuantity: number
+  itemQuantity: number;
+  totalPrice: number;
 }
 
 
-export function Header({itemQuantity}: PizzaQuantity) {
+export function Header({ itemQuantity, totalPrice }: PizzaQuantity) {
+  
+
+
   return (
     <header className="header">
       <div className="headerImgAndTextContainer">
@@ -19,12 +25,7 @@ export function Header({itemQuantity}: PizzaQuantity) {
           <p>The best pizza for you and your friends</p>
         </div>
       </div>
-
-      {/* <a className="buyPizzaLink" href="">
-        Price: 450 UAH
-      </a> */}
-
-      <BasketButton itemQuantity={itemQuantity} />
+      <BasketButton itemQuantity={itemQuantity} totalPrice={totalPrice}/>
     </header>
   );
 }
