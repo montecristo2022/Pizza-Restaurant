@@ -29,6 +29,8 @@ export function Main({
   const [priceFactors, setPriceFactors] = useState<{ [key: number]: number }>(
     {}
   );
+
+  const [allOrder, setAllOrder] = useState<{id: number, name: string, price: number}[]>([]);
   const [sizes, setSizes] = useState<{ [key: number]: number }>({});
   const [pizzaArray, setPizzaArray] = useState<
     Array<{
@@ -48,14 +50,35 @@ export function Main({
     }));
   };
 
-  const addPizzaToBasket = (id: number, name: string, price: number) => {
-    const sizeFactor = sizes[id] === 40 ? 1.35 : sizes[id] === 30 ? 1.2 : 1; // Вычисляем коэффициент цены в зависимости от выбранного размера
-    const finalPrice = (price * sizeFactor).toFixed(2); // Вычисляем итоговую цену с учетом выбранного размера
+  // const addPizzaToBasket = (id: number, name: string, price: number) => {
+  //   console.log(name)
+  //   const sizeFactor = sizes[id] === 40 ? 1.35 : sizes[id] === 30 ? 1.2 : 1; // Вычисляем коэффициент цены в зависимости от выбранного размера
+  //   const finalPrice = (price * sizeFactor).toFixed(2); // Вычисляем итоговую цену с учетом выбранного размера
 
-    console.log(`Added pizza ${name} (ID: ${id}) to basket for ${finalPrice}$`);
-    setQuantity(quantity + 1);
-    setTotalPrice(totalPrice + Number(finalPrice));
+  //   console.log(`Added pizza ${name} (ID: ${id}) to basket for ${finalPrice}$`);
+  //   setQuantity(quantity + 1);
+  //   setTotalPrice(totalPrice + Number(finalPrice));
+  // };
+
+
+const addPizzaToBasket = (id: number, name: string, price: number) => {
+  const sizeFactor = sizes[id] === 40 ? 1.35 : sizes[id] === 30 ? 1.2 : 1;
+  const finalPrice = (price * sizeFactor).toFixed(2);
+
+  const newPizzaOrder = {
+    id: id,
+    name: name,
+    price: Number(finalPrice)
   };
+
+
+  setQuantity(quantity + 1);
+  setTotalPrice(totalPrice + Number(finalPrice));
+  setAllOrder([...allOrder, newPizzaOrder]);
+};
+
+
+
 
   const handleSortByChoice = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const option = event.target.value;
@@ -73,6 +96,10 @@ export function Main({
     const sortedPizzas = [...pizzaData].sort((a, b) => b.popular - a.popular);
       setPizzaArray(sortedPizzas);
   }, []);
+
+  useEffect(() => {
+      console.log(allOrder)
+  }, [allOrder])
 
 
   return (

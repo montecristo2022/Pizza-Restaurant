@@ -1,12 +1,8 @@
-import React from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
-import { BasketPage } from "../BasketPage/BasketPage";
-import "./App.css";
-
 import { Header } from "../Header/Header";
 import { Main } from "../Main/Main";
 import pizzaData from "../PizzaData";
 import { useState } from "react";
+import "./App.css";
 
 function App() {
   const [quantity, setQuantity] = useState(0);
