@@ -17,6 +17,14 @@ interface Props {
   setTotalPrice: (value: number) => void;
   totalPrice: number;
   quantity: number;
+  allOrder: Order[];
+  setAllOrder: (value: Order[]) => void;
+}
+
+interface Order {
+  id: number;
+  name: string;
+  price: number;
 }
 
 export function Main({
@@ -25,12 +33,14 @@ export function Main({
   quantity,
   setTotalPrice,
   totalPrice,
+  allOrder,
+  setAllOrder
 }: Props) {
   const [priceFactors, setPriceFactors] = useState<{ [key: number]: number }>(
     {}
   );
 
-  const [allOrder, setAllOrder] = useState<{id: number, name: string, price: number}[]>([]);
+  // const [allOrder, setAllOrder] = useState<{id: number, name: string, price: number}[]>([]);
   const [sizes, setSizes] = useState<{ [key: number]: number }>({});
   const [pizzaArray, setPizzaArray] = useState<
     Array<{
@@ -50,35 +60,20 @@ export function Main({
     }));
   };
 
-  // const addPizzaToBasket = (id: number, name: string, price: number) => {
-  //   console.log(name)
-  //   const sizeFactor = sizes[id] === 40 ? 1.35 : sizes[id] === 30 ? 1.2 : 1; // Вычисляем коэффициент цены в зависимости от выбранного размера
-  //   const finalPrice = (price * sizeFactor).toFixed(2); // Вычисляем итоговую цену с учетом выбранного размера
+  const addPizzaToBasket = (id: number, name: string, price: number) => {
+    const sizeFactor = sizes[id] === 40 ? 1.35 : sizes[id] === 30 ? 1.2 : 1;
+    const finalPrice = (price * sizeFactor).toFixed(2);
 
-  //   console.log(`Added pizza ${name} (ID: ${id}) to basket for ${finalPrice}$`);
-  //   setQuantity(quantity + 1);
-  //   setTotalPrice(totalPrice + Number(finalPrice));
-  // };
+    const newPizzaOrder = {
+      id: id,
+      name: name,
+      price: Number(finalPrice),
+    };
 
-
-const addPizzaToBasket = (id: number, name: string, price: number) => {
-  const sizeFactor = sizes[id] === 40 ? 1.35 : sizes[id] === 30 ? 1.2 : 1;
-  const finalPrice = (price * sizeFactor).toFixed(2);
-
-  const newPizzaOrder = {
-    id: id,
-    name: name,
-    price: Number(finalPrice)
+    setQuantity(quantity + 1);
+    setTotalPrice(totalPrice + Number(finalPrice));
+    setAllOrder([...allOrder, newPizzaOrder]);
   };
-
-
-  setQuantity(quantity + 1);
-  setTotalPrice(totalPrice + Number(finalPrice));
-  setAllOrder([...allOrder, newPizzaOrder]);
-};
-
-
-
 
   const handleSortByChoice = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const option = event.target.value;
@@ -88,24 +83,25 @@ const addPizzaToBasket = (id: number, name: string, price: number) => {
     } else if (option === "price") {
       const sortedPizzas = [...pizzaData].sort((a, b) => b.price - a.price);
       setPizzaArray(sortedPizzas);
-    } 
-     
+    }
   };
 
   useEffect(() => {
     const sortedPizzas = [...pizzaData].sort((a, b) => b.popular - a.popular);
-      setPizzaArray(sortedPizzas);
+    setPizzaArray(sortedPizzas);
   }, []);
 
-  useEffect(() => {
-      console.log(allOrder)
-  }, [allOrder])
-
+  // useEffect(() => {
+  //     console.log(allOrder)
+  // }, [allOrder])
 
   return (
     <main className="main">
       <div className="choseTypeOfPizza">
-        <IngridientsButton setPizzaArray={setPizzaArray} pizzaArray={pizzaArray} />
+        <IngridientsButton
+          setPizzaArray={setPizzaArray}
+          pizzaArray={pizzaArray}
+        />
 
         <div>
           <p className="sortOfPizzas">

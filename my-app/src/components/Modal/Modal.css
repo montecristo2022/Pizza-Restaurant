@@ -27,7 +27,12 @@
   line-height: 29px;
   letter-spacing: 0.01em;
   text-transform: uppercase;
-  margin-bottom: 70px;
+  margin-bottom: 10px;
+}
+
+.containerForClosingModal {
+  display: flex;
+  justify-content: flex-end;
 }
 
 .closeModal {
@@ -35,4 +40,31 @@
   display: flex;
 justify-content: end;
 cursor: pointer;
+}
+
+
+
+.addedToBasketPizza {
+  font-size: 22px;
+  margin-left: 20px;
+  margin-bottom: 10px;
+ font-weight: 400;
+}
+
+.deleteButton {
+  display: flex;
+  align-items: center;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  margin-bottom: 30px;
+}
+
+.deleteOrdersText {
+  color: #B6B6B6;
+}
+
+.containerForButton {
+  display: flex;
+  justify-content: flex-end;
 }
