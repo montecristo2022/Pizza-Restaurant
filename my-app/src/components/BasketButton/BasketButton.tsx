@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Modal } from "../Modal/Modal";
+import Notiflix from "notiflix";
 import "./BasketButton.css";
 
 interface PizzaQuantity {
@@ -33,7 +34,33 @@ export function BasketButton({
 
   const handleCloseModal = () => {
     setIsOpen(false);
-    console.log(allOrder);
+  };
+
+  const handleConfirm = () => {
+    const uniquePizzas: (Order & { count: number })[] = [];
+
+    allOrder.forEach((onePizza) => {
+      if (uniquePizzas[onePizza.id]) {
+        uniquePizzas[onePizza.id].count++;
+      } else {
+        uniquePizzas[onePizza.id] = {
+          ...onePizza,
+          count: 1,
+        };
+      }
+    });
+
+
+    Notiflix.Report.success(
+      "Your order has been confirmed",
+      "Thank you for the order. Expect delivery within 2 hours.",
+      "Okey"
+    );
+
+    setIsOpen(false);
+    setQuantity(0);
+    setTotalPrice(0);
+    setAllOrder([]);
   };
 
   return (
@@ -41,11 +68,13 @@ export function BasketButton({
       {isOpen && (
         <Modal
           handleCloseModal={handleCloseModal}
+          handleConfirm={handleConfirm}
           allOrder={allOrder}
           setAllOrder={setAllOrder}
           setQuantity={setQuantity}
           setTotalPrice={setTotalPrice}
           totalPrice={totalPrice}
+          itemQuantity={itemQuantity}
         />
       )}
       <button onClick={handleOpenModal} className="buyPizzaLink">
@@ -54,3 +83,10 @@ export function BasketButton({
     </>
   );
 }
+
+// console.log(uniquePizzas)
+//  arr.push.uniquePizzas
+// .map((el: any) => el.name)
+// .filter((name: any) => name)
+// .map((name) => name.trim())
+// .join(", ")

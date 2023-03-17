@@ -19,26 +19,26 @@
 }
 
 .modalMainText {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
   color: #181818;
   font-weight: 600;
   font-size: 24px;
   line-height: 29px;
   letter-spacing: 0.01em;
   text-transform: uppercase;
-  margin-bottom: 10px;
 }
 
 .containerForPizzasModal {
   display: flex;
-
 }
 
 .pizzaCount {
-    font-size: 22px;
-      font-weight: 400;
+  font-size: 22px;
+  font-weight: 400;
+  width: 30px;
 }
+
 
 .containerForClosingModal {
   display: flex;
@@ -48,21 +48,57 @@
 .closeModal {
   font-size: 25px;
   display: flex;
-justify-content: end;
-cursor: pointer;
-border: none;
-background-color: transparent;
+  justify-content: end;
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
 }
 
-
-
 .pizzaName {
-  width: 250px;
+  width: 220px;
   font-size: 22px;
   margin-left: 20px;
   margin-bottom: 10px;
- font-weight: 400;
+  font-weight: 400;
 }
+
+
+.deleteOrdersText {
+  color: #b6b6b6;
+
+}
+
+.containerForButton {
+  margin-top: 10px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+
+.confirmButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  margin-top: 50px;
+  background-color: #fe5f1e;
+  min-width: 190px;
+  height: 50px;
+  border-radius: 30px;
+  transition: background-color 0.5s ease-in-out, box-shadow 0.5s ease;
+  cursor: pointer;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 16px;
+  border: none;
+}
+
+.confirmButton:hover,
+.confirmButton:focus {
+  background-color: #ff772e;
+  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.25);
+}
+
 
 .deleteButton {
   display: flex;
@@ -73,11 +109,32 @@ background-color: transparent;
   margin-bottom: 30px;
 }
 
-.deleteOrdersText {
-  color: #B6B6B6;
+
+.deleteOneTypeOfPizza {
+    display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0 auto;
+      background-color: #fe5f1e;
+      min-width: 120px;
+      height: 30px;
+      border-radius: 30px;
+      transition: background-color 0.5s ease-in-out, box-shadow 0.5s ease;
+      cursor: pointer;
+      color: #ffffff;
+      font-weight: 700;
+      font-size: 14px;
+      border: none;
 }
 
-.containerForButton {
-  display: flex;
-  justify-content: flex-end;
+
+.deleteOneTypeOfPizza:hover,
+.deleteOneTypeOfPizza:focus {
+  background-color: #ff772e;
+  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.25);
+}
+
+
+.emptyBasketText{
+  margin-top: 50px;
 }

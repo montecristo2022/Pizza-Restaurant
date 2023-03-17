@@ -4,11 +4,13 @@ import MySvg from "../images/rubbishBin.svg";
 
 interface ModalProps {
   handleCloseModal: () => void;
+  handleConfirm: () => void;
   allOrder: Order[];
   setAllOrder: (value: Order[]) => void;
   setQuantity: React.Dispatch<React.SetStateAction<number>>;
   setTotalPrice: React.Dispatch<React.SetStateAction<number>>;
   totalPrice: number;
+  itemQuantity: number;
 }
 
 interface Order {
@@ -17,28 +19,31 @@ interface Order {
   price: number;
 }
 
-interface UniquePizzas {
-  [id: number]: {
-    id: number;
-    name: string;
-    price: number;
-    count: number;
-  };
-}
-
 export function Modal({
   handleCloseModal,
   allOrder,
   setAllOrder,
   setQuantity,
   setTotalPrice,
+  handleConfirm,
   totalPrice,
+  itemQuantity,
 }: ModalProps) {
-  useEffect(() => {
-    console.log(uniquePizzas);
-  }, [allOrder]);
-
   const uniquePizzas: any = {};
+
+  const deletePizzaWithSuchId = (id: number) => {
+    const totalPriceOfDeletedPizzas = allOrder
+      .filter((el) => el.id === id)
+      .map((el) => el.price)
+      .reduce((sum, num) => sum + num, 0);
+    setTotalPrice(totalPrice - totalPriceOfDeletedPizzas);
+
+    const quatityAfterFeleating = allOrder.filter((el) => el.id === id).length;
+    setQuantity(itemQuantity - quatityAfterFeleating);
+    setAllOrder(allOrder.filter((el) => el.id !== id));
+
+    console.log(`Delete pizza with id ${id}`);
+  };
 
   allOrder.forEach((onePizza) => {
     if (uniquePizzas[onePizza.id]) {
@@ -61,7 +66,7 @@ export function Modal({
 
       <h2 className="modalMainText">YOUR BASKET</h2>
       <div className="containerForButton">
-        <button
+        {allOrder.length > 0 ? <button
           className="deleteButton"
           onClick={() => {
             setAllOrder([]);
@@ -71,7 +76,8 @@ export function Modal({
         >
           <span className="deleteOrdersText">Delete your orders</span>
           <img src={MySvg} alt="Rubbish bin" />
-        </button>
+        </button> : null}
+        
       </div>
 
       {allOrder.length > 0 ? (
@@ -104,52 +110,23 @@ export function Modal({
           .map((pizza) => {
             return (
               <div className="containerForPizzasModal" key={pizza.id}>
-                <p className="pizzaName">
-                  {pizza.name}: 
-                </p>
+                <p className="pizzaName">{pizza.name}:</p>
                 <p className="pizzaCount">{pizza.count}</p>
+                <button className="deleteOneTypeOfPizza" onClick={() => deletePizzaWithSuchId(pizza.id)}>
+                  Delete
+                </button>
               </div>
             );
           })
           .reverse()
       ) : (
-        <div>Your basket is empty. Choose one of our great pizzas.</div>
+        <div className="emptyBasketText">Your basket is empty. Choose one of our great pizzas.</div>
       )}
+      {allOrder.length > 0 ? (
+        <button className="confirmButton" onClick={handleConfirm}>
+          Confirm order
+        </button>
+      ) : null}
     </div>
   );
-}
-
-{
-  /* <button onClick={test}>ТЕСТ</button> */
-}
-
-// const [pizzaArrayForModal, setPizzaArrayForModal] = useState([])
-
-// function test() {
-//   const ordersById: any = [{}];
-//   // let totalPriceOfAllPizzas = 0
-//   for (const el of allOrder) {
-//     const { id, name, price } = el;
-//     if (!ordersById[id]) {
-//       ordersById[id] = {
-//         name,
-//         quantity: 0,
-//         totalPrice: 0,
-//       };
-//     }
-//     ordersById[id].quantity++;
-//     ordersById[id].totalPrice += price;
-//     setPizzaArrayForModal(ordersById)
-//     console.log(pizzaArrayForModal)
-//   }
-// }
-
-{
-  /* {allOrder.length > 0 ? (
-        allOrder.map((onePizza) => {
-          return <p className="addedToBasketPizza">{onePizza.name}</p>;
-        })
-      ) : (
-        <div>Your basket is empty. Choose one of our great pizzas.</div>
-      )} */
 }

@@ -38,15 +38,15 @@ const pizzaData = [
     price: 7.1,
     image: cheesePizza,
     popular: 6.99,
-   characteristics: ['meat']
+   characteristics: ['vegetarian']
   },
   {
     id: 5,
     name: "Margarita",
     price: 7.99,
     image: margarita,
-    popular: 9.42,
-    characteristics: ['vegetarian']
+    popular: 6.42,
+    characteristics: ['meat']
   },
   {
     id: 6,
