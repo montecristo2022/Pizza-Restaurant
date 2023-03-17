@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/Pizza-Restaurant/static/css/main.16751d04.css",
+    "main.js": "/Pizza-Restaurant/static/js/main.68e0581d.js",
+    "static/js/787.28cb0dcd.chunk.js": "/Pizza-Restaurant/static/js/787.28cb0dcd.chunk.js",
+    "static/media/superCheese.avif": "/Pizza-Restaurant/static/media/superCheese.0ee6c78935796e700e99.avif",
+    "static/media/prawnPizza.jpg": "/Pizza-Restaurant/static/media/prawnPizza.74a1df4c6d1fc4da9373.jpg",
+    "static/media/cheeseAndChicken.jpg": "/Pizza-Restaurant/static/media/cheeseAndChicken.8fea5994e2e1a45b4357.jpg",
+    "static/media/cheesePizza.jpg": "/Pizza-Restaurant/static/media/cheesePizza.f97dec969bd7291b9ad4.jpg",
+    "static/media/cheeseburgerPizza.jpg": "/Pizza-Restaurant/static/media/cheeseburgerPizza.4c56bbd49d84ca4ac2fa.jpg",
+    "static/media/mushroom.jpg": "/Pizza-Restaurant/static/media/mushroom.07379b13282bf7d7e579.jpg",
+    "static/media/margarita.jpg": "/Pizza-Restaurant/static/media/margarita.c490d7d39d1b7921f8a8.jpg",
+    "static/media/testPizza.jpg": "/Pizza-Restaurant/static/media/testPizza.5195f41fb9dad7e9c009.jpg",
+    "static/media/rubbishBin.svg": "/Pizza-Restaurant/static/media/rubbishBin.ceafcffb34cece0b1462c3505b170d88.svg",
+    "index.html": "/Pizza-Restaurant/index.html",
+    "main.16751d04.css.map": "/Pizza-Restaurant/static/css/main.16751d04.css.map",
+    "main.68e0581d.js.map": "/Pizza-Restaurant/static/js/main.68e0581d.js.map",
+    "787.28cb0dcd.chunk.js.map": "/Pizza-Restaurant/static/js/787.28cb0dcd.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.16751d04.css",
+    "static/js/main.68e0581d.js"
+  ]
+}
