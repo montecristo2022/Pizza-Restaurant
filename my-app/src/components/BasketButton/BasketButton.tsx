@@ -45,6 +45,7 @@ export function BasketButton({
           setAllOrder={setAllOrder}
           setQuantity={setQuantity}
           setTotalPrice={setTotalPrice}
+          totalPrice={totalPrice}
         />
       )}
       <button onClick={handleOpenModal} className="buyPizzaLink">

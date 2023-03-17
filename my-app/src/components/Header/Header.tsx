@@ -44,6 +44,7 @@ export function Header({
           setAllOrder={setAllOrder}
           setQuantity={setQuantity}
           setTotalPrice={setTotalPrice}
+          
         />
       </header>
     </>

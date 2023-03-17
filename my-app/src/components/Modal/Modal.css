@@ -30,6 +30,16 @@
   margin-bottom: 10px;
 }
 
+.containerForPizzasModal {
+  display: flex;
+
+}
+
+.pizzaCount {
+    font-size: 22px;
+      font-weight: 400;
+}
+
 .containerForClosingModal {
   display: flex;
   justify-content: flex-end;
@@ -40,11 +50,14 @@
   display: flex;
 justify-content: end;
 cursor: pointer;
+border: none;
+background-color: transparent;
 }
 
 
 
-.addedToBasketPizza {
+.pizzaName {
+  width: 250px;
   font-size: 22px;
   margin-left: 20px;
   margin-bottom: 10px;

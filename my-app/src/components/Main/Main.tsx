@@ -25,6 +25,7 @@ interface Order {
   id: number;
   name: string;
   price: number;
+ 
 }
 
 export function Main({
@@ -34,13 +35,15 @@ export function Main({
   setTotalPrice,
   totalPrice,
   allOrder,
-  setAllOrder
+  setAllOrder,
 }: Props) {
   const [priceFactors, setPriceFactors] = useState<{ [key: number]: number }>(
     {}
   );
 
-  // const [allOrder, setAllOrder] = useState<{id: number, name: string, price: number}[]>([]);
+  // const [thisTypePizzaQuantity, setThisTypePizzaQuantity] = useState(1)
+  // const [thisTypePizzaPrice, setthisTypePizzaPrice] = useState(0)
+ 
   const [sizes, setSizes] = useState<{ [key: number]: number }>({});
   const [pizzaArray, setPizzaArray] = useState<
     Array<{
@@ -60,9 +63,16 @@ export function Main({
     }));
   };
 
+
+
+
+
+
+
   const addPizzaToBasket = (id: number, name: string, price: number) => {
     const sizeFactor = sizes[id] === 40 ? 1.35 : sizes[id] === 30 ? 1.2 : 1;
     const finalPrice = (price * sizeFactor).toFixed(2);
+
 
     const newPizzaOrder = {
       id: id,
@@ -73,7 +83,13 @@ export function Main({
     setQuantity(quantity + 1);
     setTotalPrice(totalPrice + Number(finalPrice));
     setAllOrder([...allOrder, newPizzaOrder]);
+    
   };
+
+
+
+
+
 
   const handleSortByChoice = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const option = event.target.value;
@@ -171,3 +187,56 @@ export function Main({
     </main>
   );
 }
+
+
+
+
+
+
+
+
+
+
+
+
+// const calculateTotalPrice = (id: number): number => {
+//   const filteredPizzas = allOrder.filter((pizza) => pizza.id === id);
+//   const totalPrice = filteredPizzas.reduce(
+//     (acc, curr) => acc + curr.price,
+//     0
+//   );
+//   return totalPrice;
+// };
+
+// const isSuchPizzaAlreadyBooght = (existingPizza: Order | undefined) => {
+//   if (existingPizza) {
+//     setThisTypePizzaQuantity((prevQuantity) => prevQuantity + 1);
+//     const totalPrice = calculateTotalPrice(existingPizza.id);
+//     setthisTypePizzaPrice(totalPrice);
+//     console.log(existingPizza)
+//     console.log(thisTypePizzaQuantity);
+//     console.log(totalPrice);
+//   } else {
+//     console.log(false);
+//   }
+// };
+  
+  
+//   const addPizzaToBasket = (id: number, name: string, price: number) => {
+//   const sizeFactor = sizes[id] === 40 ? 1.35 : sizes[id] === 30 ? 1.2 : 1;
+//   const finalPrice = (price * sizeFactor).toFixed(2);
+
+//   const existingPizza = allOrder.find((pizza) => pizza.id === id);
+
+//   isSuchPizzaAlreadyBooght(existingPizza);
+
+//   const newPizzaOrder = {
+//     id: id,
+//     name: name,
+//     price: Number(finalPrice),
+//   };
+
+//   setQuantity(quantity + 1);
+//   setTotalPrice(totalPrice + Number(finalPrice));
+//   setAllOrder([...allOrder, newPizzaOrder]);
+// };
